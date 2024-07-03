@@ -25,7 +25,7 @@ def login_view(request):
             if user is not None:
                 # Authentification réussie
                 email = user.email
-                external_api_url = 'http://external-service-url'
+                external_api_url = 'http://localhost:5050/generate-code/'
 
                 # Envoyer une requête POST à l'autre service
                 response = requests.post(external_api_url, json={'email': email})
