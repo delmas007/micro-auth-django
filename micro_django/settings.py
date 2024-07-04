@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentification',
     'model',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -60,8 +61,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",  # URL de développement de votre application Angular
+    # "https://votre-domaine-angular.com",  # URL de production de votre application Angular
 ]
 
+CORS_ALLOW_CREDENTIALS = True  # Si vous utilisez des cookies pour l'authentification
 ROOT_URLCONF = 'micro_django.urls'
 
 TEMPLATES = [

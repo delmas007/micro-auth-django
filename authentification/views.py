@@ -31,7 +31,9 @@ def login_view(request):
                 response = requests.post(external_api_url, json={'email': email})
 
                 if response.status_code == 200:
-                    return Response({'detail': 'Authentification réussie et traitement externe réussi'},
+                    return Response({'detail': 'Authentification réussie et traitement externe réussi',
+                                     'mail': email,
+                                     },
                                     status=status.HTTP_200_OK)
                 else:
                     return Response({'detail': 'Erreur lors du traitement externe'}, status=response.status_code)
